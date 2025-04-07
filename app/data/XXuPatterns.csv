@@ -1,0 +1,20 @@
+Design Patterns,Cost,Interoperability,Privacy,Security,Integrity,Transparency,Performance
+Centralized_Oracle,+,++,-,--,,,++
+Centralized_Reverse_Oracle,,++,,-,,,++
+Oracle,,,,,,,
+Reverse_Oracle,,,,,,,
+Legal_and_Smart_Contract,,,,,++,++,
+Encrypting_On-Chain_Data,,,+,--,,,-
+Encrypting_On-Chain_Data_Secure_Multi-Party_Computation,,,+,--,,,-
+Tokenization,+,,,-,++,+,
+Off-Chain_Data_Storage,,,,,,,
+Off-Chain_Data_Storage_Cloud_Storage,++,,,--,,--,+
+State_Channel,++,,+,-,,+,++
+Multiple_Authorization,-,,,+,+,,+
+Off-Chain_Secret_Enabled_Dynamic_Authorization,--,+,,--,,,++
+X-Confirmation,,,,++,++,++,
+Contract_Registry,-,+,,+,+,,+
+Data_Contract,,,,++,,,++
+Embedded_Permission,,,,++,,+,-
+Factory_Contract,-,,,+,,,+
+Incentive_Execution,++,,,,,,

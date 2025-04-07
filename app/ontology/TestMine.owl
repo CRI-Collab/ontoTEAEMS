@@ -1,0 +1,1588 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:teaemontology="http://www.semanticweb.org/eddy/teaemontology#">
+    <Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#hasInfluenceType -->
+
+    <AnnotationProperty rdf:about="http://www.semanticweb.org/eddy/teaemontology#hasInfluenceType"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#hasSource -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/eddy/teaemontology#hasSource">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#hasTarget -->
+
+    <ObjectProperty rdf:about="http://www.semanticweb.org/eddy/teaemontology#hasTarget">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#hasReason -->
+
+    <DatatypeProperty rdf:about="http://www.semanticweb.org/eddy/teaemontology#hasReason">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence -->
+
+    <Class rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#InfluenceType -->
+
+    <Class rdf:about="http://www.semanticweb.org/eddy/teaemontology#InfluenceType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Pattern -->
+
+    <Class rdf:about="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Softgoal -->
+
+    <Class rdf:about="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Contract_Registry -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Data_Contract -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Data_Contract">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Factory_Contract -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Improves -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Improves">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#InfluenceType"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maintaining a registry and performing updates incur additional costs.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Centralizes smart contract versions, facilitating validation and integrity</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enhances connectivity by providing readable names and simplifying dependencies between contracts</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">.Speeds up access to contracts through readable names and a centralized registry.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Improves security by centralizing contract versions</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Contract_Registry_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Contract_Registry"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">No impact on transparency </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Separating contract data reduces migration costs during updates.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not guarantee the data integrity </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Separating data and contract logic reduces update delays</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Separating data and contract logic reduces the risk of corruption.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Data_Contract_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Data_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact transparency</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Implementing authorizations in contracts does not introduce significant costs.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Focuses on authorizations, with no direct effect on integrity</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Many Access controls decrease delays time.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ensures strict access control to contract functions.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Embedded_Permission_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Embedded_Permission"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Controls authorizations while maintaining transaction transparency on the blockchain</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encryption mechanisms require off-chain management but do not significantly impact costs.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encryption does not explicitly guarantee data integrity.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not concern interoperability, as it focuses on privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Slow down transactions due to the additional computational requirements</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ensures strong privacy through the encryption of sensitive data on the blockchain.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highly vulnerable if off-chain keys are compromised.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Encrypting_On-Chain_Data_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Encrypting_On-Chain_Data"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encryption protects data but limits transparency.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Requires additional fees to deploy and use a factory contract.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not guarantee the data integrity</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Simplifies instance creation, thereby increasing performance</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ensures the consistency and security of contract instances.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Factory_Contract_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Factory_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact transparency </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encourages the execution of secondary tasks without imposing additional costs on users</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not guarantee the data integrity</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Encourages the execution of necessary auxiliary functions, maintaining overall performance.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">No Impact on Security</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Incentive_Execution_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Incentive_Execution"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Does not impact transparency </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Focusing on the contract automation, it neither introduces or reduces costs a lot.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enables an explicit link between legal and smart contracts, enhancing traceability and integrity.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Automation improves processes, but the limitations of smart contracts reduce performance gains.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact security.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Legal_and_Smart_Contract_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Smart contracts recorded on the blockchain provide complete transparency for auditing.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Managing multiple addresses and authorizations adds few configuration costs.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ensures a transaction validation process through multiple authorized addresses, guaranteeing minimal integrity.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduces additional validation mechanisms that may slow down transactions but ensures reliable processes.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enhances security through multiple authorization mechanisms.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Multiple_Authorization_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact transparency </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reduces the costs associated with direct storage on the blockchain by storing data off-chain.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Uses hashes to guarantee the integrity of off-chain stored data.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Moves large data off the blockchain, thereby reducing the load and improving performance.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Depends on the security of off-chain systems, which is a major point of failure</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Data_Storage_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Off-chain stored data is not transparent.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highly reliant on an off-chain secret, which adds significant costs for secure management and sharing.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not guarantee the integrity of authorized transactions.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Compatible with various off-chain systems.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Improves performance by dynamically linking initially unknown participants</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Highly vulnerable in case of loss or compromise of the off-chain secret</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Off-Chain_Secret_Enabled_Dynamic_Authorization_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact transparency.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">As a trusted third party is a requirements for its operation, without any additional costs.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not guarantee the integrity of information.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Connects blockchain with external world using a trusted third party</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Increase the latency and the throughput.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">impact privacy, but this impact largely depends on its implementation. additional mechanisms such as data encryption, zero-knowledge can be used.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduces a trusted third party, which reduces security by introducing vulnerabilities.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Oracle_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The use of a trusted third party reduces transparency.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact on the cost usage</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Data verification remains dependent on existing systems, without explicit assurance of integrity.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Integrates the blockchain into existing systems while minimizing the required adjustments.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Optimizes performance by integrating external systems and reducing validation efforts.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Poses a moderate risk due to the modifications required for existing systems.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Reverse_Oracle_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact the transparency.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reduces costs by storing only the final transactions on the blockchain</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intermediate off-chain transactions do not guarantee the integrity of the entire process.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability but improves the management of off-chain transactions</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increase speed and reduce blockchain-related delays</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enhances privacy by storing intermediate transactions off-chain</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Off-chain transactions are less reliable than on-chain transactions.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_State_Channel_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#State_Channel"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Final transactions are transparent, but intermediaries remain off-chain</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reduces low costs associated with errors or losses by using tokens</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tokens recorded on the blockchain ensure strong traceability and integrity of digital assets</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact Interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact the performance.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy. </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ensures the integrity of tokens but not the associated physical assets.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Worsens"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_Tokenization_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Tokenization"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tokens transactions are traceable and transparent on the blockchain </teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Cost -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Cost">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Cost"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It has no direct impact on costs, as it is a wait-and-see strategy to enhance security</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Integrity"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Successive confirmations increase the likelihood of transaction integrity.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Interoperability"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact interoperability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Performance"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not directly affect performance.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Privacy"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Does not impact privacy.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Neutral"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Security"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Significantly enhances security by increasing the likelihood of immutability.</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Influence_X-Confirmation_Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Influence"/>
+        <teaemontology:hasSource rdf:resource="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation"/>
+        <teaemontology:hasTarget rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Transparency"/>
+        <teaemontology:hasReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confirmed transactions on the blockchain are transparent</teaemontology:hasReason>
+        <teaemontology:hasInfluenceType rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Improves"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Integrity -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Interoperability -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Interoperability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Legal_and_Smart_Contract">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Multiple_Authorization">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Neutral -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Neutral">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#InfluenceType"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Data_Storage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Off-Chain_Secret_Enabled_Dynamic_Authorization">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Oracle -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Oracle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Performance -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Privacy -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Privacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Reverse_Oracle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Security -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Security">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#State_Channel -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#State_Channel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Tokenization -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Tokenization">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Transparency -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Transparency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Softgoal"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#Worsens -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#Worsens">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#InfluenceType"/>
+    </NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/eddy/teaemontology#X-Confirmation -->
+
+    <NamedIndividual rdf:about="http://www.semanticweb.org/eddy/teaemontology#X-Confirmation">
+        <rdf:type rdf:resource="http://www.semanticweb.org/eddy/teaemontology#Pattern"/>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,59 @@
+h1 {
+    color: #ff7f50; 
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+}
+
+.stMultiSelect [data-baseweb="select"] {
+    background-color: #b9b5b5;
+    border-radius: 8px;
+    border: 1px solid #ec0909;
+    padding: 10px;
+}
+
+.stButton button {
+    background-color: #bf810f73;
+    color: rgb(7, 7, 7);
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stButton button:hover {
+    background-color: #ffcb47;
+}
+
+.stColumns {
+    margin-top: 20px;
+}
+
+.stAlert {
+    background-color: #ffebee;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.domain-expert-title {
+    font-size: 2.5em;
+    color: #2941f4;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #f39549, #e5ff50);
+    padding: 10px;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -1,9 +1,10 @@
 # app/Dockerfile
 
-FROM --platform=linux/amd64 python:3.11
+FROM  python:3.13-slim
 
 WORKDIR /app
 ADD /app .
+
 
 RUN pip install -r requirements.txt
 EXPOSE 8501

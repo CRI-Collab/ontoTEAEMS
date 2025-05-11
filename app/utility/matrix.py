@@ -5,13 +5,13 @@ from owlready2 import get_ontology
 from ontology.loadOntology import OntologyManager
 
 current_dir = os.path.dirname(__file__)
-onto_path = os.path.normpath(os.path.join(current_dir, "./ontology/TestMine.owl"))
+onto_path = os.path.normpath(os.path.join(current_dir, "../ontology/TestMine.owl"))
 onto_manager = OntologyManager(onto_path)
 
 def loadMatrix():
     current_dir = os.path.dirname(__file__)
-    matA_path = os.path.normpath(os.path.join(current_dir, "./data/XXuPatterns.csv"))
-    matB_path = os.path.normpath(os.path.join(current_dir, "./data/XXuPatterns2.csv"))
+    matA_path = os.path.normpath(os.path.join(current_dir, "../data/XXuPatterns.csv"))
+    matB_path = os.path.normpath(os.path.join(current_dir, "../data/XXuPatterns2.csv"))
     
     matriceA = pd.read_csv(matA_path)
     matriceB = pd.read_csv(matB_path)

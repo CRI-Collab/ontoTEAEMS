@@ -14,22 +14,6 @@ def generateMap(sgmap, title):
         content.append(f'<p style="color: gray;">{title} Harmed: {", ".join(sgmap["harmed"])}</p>')
     return "\n".join(content)
 
-def displayIconColor(label, value, container_class):
-    # Définir l'icône et la couleur en fonction de la valeur
-    if value > 0:
-        icon = "🟢"  # Vert pour une valeur positive
-    elif value < 0:
-        icon = "🔴"  # Rouge pour une valeur négative
-    else:
-        icon = "⚪"  # Blanc pour une valeur neutre
-    
-    st.markdown(
-        f'<div class="slider-container {container_class}">'
-        f'<strong>{label}</strong>: {icon} {value}'
-        '</div>',
-        unsafe_allow_html=True
-    )
-    
 def getScoreValue(value):
     scale = {"": 0, "+": 1, "++": 2 }
     return scale.get(value, 0)
@@ -58,7 +42,6 @@ def displayBar(label, value):
         """,
         unsafe_allow_html=True,
     )
-
 
 def update_choice(pattern, choice):
     if choice == "original":

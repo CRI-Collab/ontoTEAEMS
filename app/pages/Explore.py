@@ -1,15 +1,15 @@
 import streamlit as st
-import Explore.exploreOntoScore
-import Explore.exploreMatrix
+import explore.exploreOntoScore
+import explore.exploreMatrix
 from kbase import dbManager
 
 page = st.sidebar.radio("Ontology Exploration", [ "Explore Ontology", "Matrix Quantification"], key="page_selectbox")
 
 if page == "Explore Ontology":
-    Explore.exploreOntoScore.ExploreWithScore(dbManager)
+    explore.exploreOntoScore.ExploreWithScore(dbManager)
 
 elif page == "Matrix Quantification":
-    Explore.exploreMatrix.ExploreMatrixQuantification(dbManager)
+    explore.exploreMatrix.ExploreMatrixQuantification(dbManager)
 
 if st.sidebar.button("Back To Configuration"):
     st.switch_page("pages/configuration.py")

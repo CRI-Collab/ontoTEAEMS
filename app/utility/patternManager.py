@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import json
-from utils import getScoreValue
+from utility.utils import getScoreValue
 
 from dotenv import load_dotenv 
 load_dotenv()
@@ -90,10 +90,3 @@ def reclassifyHybridPatterns(patterns, softgoalChoice):
             noFuncPatterns.append(pattern)
 
     return funcPatterns, noFuncPatterns
-
-
-### Tasks : 
-# Enlever les variants des Patterns no functonials
-# Quand deux patterns sont la, on verifie le score et on propose
-# Les Patterns non fonctionnelles doivent être exclusifs
-# Topsis doit se calculer sur les valeurs des variants combinés à ceux des patterns pas que des patterns

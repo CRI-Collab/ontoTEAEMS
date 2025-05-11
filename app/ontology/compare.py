@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-from utils import display_slider, update_checkboxes, likertValue
+from utility.utils import display_slider, likertValue
 from ontology.loadOntology import OntologyManager
 from topsis import *
 from kbase.dbManager import DatabaseManager

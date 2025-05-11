@@ -56,7 +56,7 @@ h1 {
     margin-top: 0px;
 }
 
-.technical-expert-title {
+.technical-expert-title2 {
     font-size: 3em;
     color: #ffffff;
     text-align: center;
@@ -89,7 +89,7 @@ h1 {
     }
 }
 
-.technical-expert-title::before {
+.technical-expert-title::before2 {
     content: '';
     position: absolute;
     top: 0;
@@ -135,3 +135,112 @@ h1 {
     margin-left: 10px;
 }
 
+.sidebar-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2e86de;
+    margin-bottom: 20px;
+}
+.sidebar-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.match-recommendation {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+}
+
+.match-recommendation-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.match-recommendation-title::before {
+    content: "✓";
+    color: #4a6fa5;
+    font-weight: bold;
+}
+
+.match-recommendation-subtitle {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.decision-alert {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.decision-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #5a5a5a;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.decision-subtitle {
+    font-size: 0.95rem;
+    color: #6e6e6e;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.decision-highlight {
+    font-weight: 600;
+    color: #4a6fa5;
+    background-color: #f0f4f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.technical-expert-title {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin: 0 0 2rem 0;
+    background-color: #e4e3e3;
+    border-bottom: 2px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    letter-spacing: 0.75px;
+}
+
+.technical-expert-title::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

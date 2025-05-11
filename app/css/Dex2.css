@@ -1,0 +1,146 @@
+/* ===== Main Container Styles ===== */
+.decision-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.decision-header .title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.decision-header .subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* ===== Alert Box ===== */
+.alert {
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.alert-info {
+    background-color: #e7f5ff;
+    border-left: 4px solid #4dabf7;
+    color: #1864ab;
+}
+
+/* ===== Decision Cards ===== */
+.decision-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+.decision-card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.decision-card p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Conflict Display ===== */
+.conflict-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.vs-badge {
+    background: #e63946;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+}
+
+.softgoal-options {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.softgoal-pill {
+    flex: 1;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border: 2px dashed #adb5bd;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+/* ===== Radio Button Styling ===== */
+.stRadio > div {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.stRadio [role="radiogroup"] {
+    border: none !important;
+    gap: 3rem;
+}
+
+.stRadio [data-testid="stMarkdownContainer"] {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+/* ===== Button Styles ===== */
+.stButton button {
+    transition: all 0.2s ease !important;
+}
+
+.stButton button:disabled {
+    opacity: 0.5 !important;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media screen and (max-width: 768px) {
+    .conflict-display {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .vs-badge {
+        position: relative;
+        margin: 1rem 0;
+    }
+    
+    .softgoal-options {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,114 @@
+/* Timeline Styles */
+body {
+    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.timeline {
+    position: relative;
+    max-width: 750px;
+    margin: 2rem auto;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-connector {
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    bottom: -30px;  
+    width: 5px;
+    background: linear-gradient(to bottom, #4F46E5, #10B981);
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4F46E5, #10B981);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: #F8FAFC;
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+    border-left: 4px solid #4F46E5;
+}
+
+.timeline-content h4 {
+    margin-top: 0;
+    color: #1E3A8A;
+}
+
+.expert-tag {
+    display: inline-block;
+    background-color: #E0E7FF;
+    color: #4F46E5;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Banner Styles */
+.banner {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.banner2 {
+    background-color: #dfdb57;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.banner h2 {
+    color: white;
+    margin-top: 0;
+}
+
+/* Button Styles */
+.stButton>button {
+    background: linear-gradient(135deg, #4F46E5, #10B981);
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+}
+
+/* Footer Styles */
+.footer {
+    margin-top: 4rem;
+    padding: 1rem;
+    text-align: center;
+    color: #666666;
+    font-size: 0.9rem;
+    border-top: 1px solid #E5E7EB;
+}

@@ -3,7 +3,7 @@
 **Bridging Business Strategy and Technical Implementation**  
 *An framework for optimizing architecture decisions through prioritized softgoal mapping*
 
-## 🔍 Core Concept
+## Core Concept
 A collaborative platform where:
 - **Business Experts** define strategic priorities through weighted softgoals  
 - **Technical Experts** translate these into optimal architectural patterns  
@@ -11,7 +11,7 @@ A collaborative platform where:
 
 Resolves the classic "Business-Technical Alignment Gap" through traceable decision workflows.
 
-## 🛠️ Key Features
+## Key Features
 
 ### Business Perspective
 - Priority-weighted softgoal definition  
@@ -31,7 +31,7 @@ Resolves the classic "Business-Technical Alignment Gap" through traceable decisi
 | Final Validation       | ✅ Approve    | ✅ Quality-Check |
  
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 ```bash

@@ -115,37 +115,36 @@ def matchSoftgoal(softpreferences, allpatterns):
 
 def conflictsSoftgoal(softpreferences, allpatterns):
     priorities = {k: v for k, v in softpreferences.items() if v in [0, 1]}
-    if not priorities or len(priorities) < 2: 
-        return None
-
+    #priorities = {k: v for k, v in softpreferences.items() if v != 0}
+    if not priorities:
+        return None, None
     softgoalsConflict = {}
-    score_map = {'++': 2, '+': 1, '': 0, '-': -1, '--': -2}
-
-    for sg1, sg2 in combinations(priorities.keys(), 2):
-        conflictPatterns = []
-        
-        for _, row in allpatterns.iterrows():
-            if sg1 not in row or sg2 not in row:
-                continue
-                
-            val1 = score_map.get(row[sg1], 0)
-            val2 = score_map.get(row[sg2], 0)
-            
-            if (val1 >= 1 and val2 <= -1) or (val1 <= -1 and val2 >= 1):
-                conflictPatterns.append({
-                    'pattern': row['Design Patterns'],
-                    'values': {sg1: row[sg1], sg2: row[sg2]},
-                    'scores': {sg1: val1, sg2: val2} 
-                })
-
-        if conflictPatterns:
-            softgoalsConflict[(sg1, sg2)] = {
-                'patterns': conflictPatterns,
-                'priority_sg1': priorities[sg1],
-                'priority_sg2': priorities[sg2]
-            }
+    softgoals = list(priorities.keys())
     
-    return softgoalsConflict if softgoalsConflict else None
+    for i in range(len(softgoals)):
+        for j in range(i+1, len(softgoals)):
+            sg1, sg2 = softgoals[i], softgoals[j]
+            conflictPatterns = []
+
+            for _, row in allpatterns.iterrows():
+                patternData = row['Design Patterns']
+
+                if sg1 in row and sg2 in row:
+                    valSg1, valSg2 = row[sg1], row[sg2]
+                    # Detect strong conflicts (++ vs --)
+                    if (valSg1 in ['++', '+'] and valSg2 == '--') or (valSg1 == '--' and valSg2 in ['++', '+']):
+                        conflictPatterns.append({
+                            'pattern': patternData,
+                            'values': {sg1: valSg1, sg2: valSg2}
+                        })
+            if conflictPatterns:
+                softgoalsConflict[(sg1, sg2)] = {
+                    'patterns': conflictPatterns,
+                    'priority_sg1': priorities[sg1],
+                    'priority_sg2': priorities[sg2]
+                }
+    
+    return softgoalsConflict
 
 def showTradeOffNFRs(sg1, sg2, conflictData):
     st.warning(f"⚠️ Softgoals Trade-offs Detected: {sg1} vs {sg2}")
@@ -177,36 +176,6 @@ def showTradeOffNFRs(sg1, sg2, conflictData):
         Please explicitly choose which quality attribute should be prioritized:
         """)
 
-def get_smart_recommendations(softpreferences, patterns_df):
-    score_map = {'++': 2, '+': 1, '': 0, '-': -1, '--': -2}
-    improve_goals = [sg for sg, val in softpreferences.items() if val == 1]
-    
-    recommendations = []
-    base_matches = matchSoftgoal(softpreferences, patterns_df) or []
-    
-    for sg in improve_goals:
-        test_prefs = softpreferences.copy()
-        test_prefs[sg] = 0
-        new_matches = matchSoftgoal(test_prefs, patterns_df) or []
-        
-        if new_matches and len(new_matches) > len(base_matches):
-            delta = len(new_matches) - len(base_matches)
-            recommendations.append((sg, delta, new_matches))
-
-    if not recommendations and len(improve_goals) >= 2:
-        from itertools import combinations
-        for sg1, sg2 in combinations(improve_goals, 2):
-            test_prefs = softpreferences.copy()
-            test_prefs[sg1] = 0
-            test_prefs[sg2] = 0
-            new_matches = matchSoftgoal(test_prefs, patterns_df) or []
-            
-            if new_matches:
-                delta = len(new_matches) - len(base_matches)
-                recommendations.append((f"{sg1} AND {sg2}", delta, new_matches))
-    
-    return sorted(recommendations, key=lambda x: -x[1])
-
 def selectSoftgoals():
     showsideBar()
     load_css(cssPaths)
@@ -225,7 +194,7 @@ def selectSoftgoals():
         if priorities:
             countMatch  = matchSoftgoal(st.session_state.softpreferences, st.session_state.allpatterns)
             softgoalsConflict = conflictsSoftgoal(st.session_state.softpreferences, st.session_state.allpatterns)
-            col1, col2 = st.columns([1, 1])
+            col1, col2 = st.columns([1, 3])
             with col1:
                 if countMatch:
                     total_patterns = len(st.session_state.allpatterns)/2 + 0.5
@@ -246,37 +215,13 @@ def selectSoftgoals():
                     #with st.expander("View matching patterns"):
                     #    for pattern in countMatch:
                     #        st.write(f"- {pattern}")
-                if not countMatch:
-                    recommendations = get_smart_recommendations(
-                        st.session_state.softpreferences,
-                        st.session_state.allpatterns
-                    )
-                    if recommendations:
-                        st.warning("🔍 Solutions disponibles en relâchant:")
-                        for i, (sgs, delta, new_matches) in enumerate(recommendations[:3]):
-                            st.success(f"Option {i+1}: Release {sgs} (activates {delta} patterns)")
-                            #with st.expander(f"Option {i+1}: Relâcher {sgs} (+{delta} patterns)"):
-                            #    st.write("Patterns qui deviendraient disponibles :")
-                            #    for p in new_matches[:5]:  # Affiche max 5 patterns
-                            #        st.write(f"- {p}")
-                            if st.button(f"Apply this solution", key=f"apply_{i}"):
-                                for sg in sgs.split(" AND "):
-                                    if sg in st.session_state.softpreferences:
-                                        st.session_state.softpreferences[sg] = 0
-                                st.rerun()
-                    else:
-                         st.error("""
-                            🛑 Aucune solution trouvée même en relâchant les contraintes.  
-                            Essayez :
-                            1. D'ajouter plus de patterns à votre sélection initiale
-                            2. De réduire le nombre de critères 'Improve'
-                            """)
-                    #st.warning("No patterns satisfy the current criteria. You may need to adjust constraints (Best Effort).")
+                else:
+                    st.warning("No patterns satisfy the current criteria. You may need to adjust constraints (Best Effort).")
         
-            #with col2:
-            #    if softgoalsConflict:
-            #        for (sg1, sg2), conflictdata in softgoalsConflict.items():
-            #            showTradeOffNFRs(sg1, sg2, conflictdata)
+            with col2:
+                if softgoalsConflict:
+                    for (sg1, sg2), conflictdata in softgoalsConflict.items():
+                        showTradeOffNFRs(sg1, sg2, conflictdata)
     #####  #####  ##### ##### ##### ##### ##### #####
     col1, col2 = st.columns([1, 3])
     with col1:

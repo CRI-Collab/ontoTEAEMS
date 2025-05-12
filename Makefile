@@ -1,2 +1,14 @@
-all:
-	docker buildx build --platform linux/amd64 -t eddy/ontoteams:v1 --push . 
+.PHONY: build push run
+
+DOCKER_IMAGE = eddy/ontoteams:v1
+
+build:
+	docker buildx build --platform linux/amd64 -t $(DOCKER_IMAGE) .
+
+push:
+	docker push $(DOCKER_IMAGE)
+
+run:
+	docker run -p 8501:8501 $(DOCKER_IMAGE)
+
+all: build push

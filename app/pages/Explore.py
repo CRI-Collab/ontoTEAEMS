@@ -12,7 +12,7 @@ elif page == "Matrix Quantification":
     explore.exploreMatrix.ExploreMatrixQuantification(dbManager)
 
 if st.sidebar.button("Back To Configuration"):
-    st.switch_page("pages/configuration.py")
+    st.switch_page("pages/View.py")
 
 button_style = """
     <style>

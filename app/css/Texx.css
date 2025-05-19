@@ -1,0 +1,96 @@
+/* Conflict Alert Styling */
+.conflict-container {
+    background-color: #fff8f8;
+    border-left: 4px solid #ff4d4d;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.conflict-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #d32f2f;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.conflict-icon {
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.conflict-title {
+    font-size: 1.2rem;
+}
+
+.conflict-details {
+    padding-left: 0.5rem;
+}
+
+.conflict-softgoal {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.conflict-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.conflict-improving, .conflict-degrading {
+    flex: 1;
+}
+
+.conflict-subtitle {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.conflict-improving .conflict-subtitle {
+    color: #2e7d32;
+}
+
+.conflict-degrading .conflict-subtitle {
+    color: #c62828;
+}
+
+.conflict-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.conflict-list li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.conflict-message {
+    font-style: italic;
+    color: #666;
+    margin: 1rem 0;
+}
+
+.conflict-suggestion {
+    background-color: #f5f5f5;
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.conflict-suggestion ul {
+    margin: 0.5rem 0 0 1rem;
+    padding-left: 1rem;
+}
+
+.conflict-suggestion li {
+    margin-bottom: 0.3rem;
+}

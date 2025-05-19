@@ -1,15 +1,15 @@
-from ast import Not
+import streamlit as st
 import numpy as np
-from scipy.spatial.distance import cdist
 from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
-import streamlit as st
-import os
-from ontology.loadOntology import OntologyManager
+import os, json
+from dotenv import load_dotenv 
+#from ontology.loadOntology import OntologyManager
 
 current_dir = os.path.dirname(__file__)
-#ONTOLOGY_PATH = os.path.join(current_dir, "./ontology/TestMine.owl")
-#ontoManager = OntologyManager(ONTOLOGY_PATH)
+load_dotenv()
+patternVariantPath = os.getenv('PATTERN_VARIANTS')
+PATTERN_VARIANTS = json.loads(patternVariantPath)
 
 css_path = os.path.join(current_dir, "./css/styles.css")
 if os.path.exists(css_path):
@@ -57,7 +57,81 @@ def topsisAlgorithm(decMatrix, weights, criteria_directions):
     return rang
 
 def topsisAffichage(rankings, ontoManager, selectedSoftgoals):
-    #st.markdown("""### :orange[Recommendation Results]""")
+    col_rec, col_patterns = st.columns([2, 8])
+
+    with col_rec:
+        st.markdown(f"""
+        <div style='background-color: #f0f2f6; padding: 15px; border-radius: 10px; height: 100%;'>
+            <h4 style='color: #4a5568;'>🔍 Recommendation</h4>
+            <hr style='margin: 10px 0;'>
+            <p>Based on your softgoals preferences for: <i>{", ".join(selectedSoftgoals)}</i></p>
+            <p>Here are the most suitable patterns:</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col_patterns:
+        sorted_patterns = sorted(rankings.items(), key=lambda x: x[1], reverse=True)
+        
+        functional_patterns = st.session_state.get("functional_patterns", [])
+        variants_to_include = set()
+        for base_pattern, variants in PATTERN_VARIANTS.items():
+            variants_to_include.update(variants)
+        
+        non_func_in_selected = [
+            p for p in st.session_state.selectedPatterns.keys() 
+            if p not in functional_patterns and p not in variants_to_include
+        ]
+        
+        for pattern, score in sorted_patterns:
+            fpatterns = pattern.replace("_", " ")
+            
+            is_functional = (pattern in functional_patterns or 
+                           pattern in variants_to_include)
+            is_non_func_selected = pattern in non_func_in_selected
+            
+            if is_functional:
+                color = "#4169E1"  # Bleu royal
+                icon = "🔒"
+                label = "MANDATORY"
+                score_display = ""
+            elif is_non_func_selected:
+                if score >= 0.6:
+                    color = "#2ECC71"  # Vert émeraude
+                    icon = "✅"
+                    label = "STRONGLY RECOMMENDED"
+                elif 0.4 <= score < 0.6:
+                    color = "#F39C12"  # Orange doux
+                    icon = "ℹ️"
+                    label = "MODERATELY RECOMMENDED"
+                else:
+                    color = "#E74C3C"  # Rouge clair
+                    icon = "⚠️"
+                    label = "NOT RECOMMENDED"
+                score_display = f"Potential satisfaction Score: <b>{score:.2f}</b>"
+            else:
+                color = "#7F8C8D"  # Gris foncé
+                icon = "🔘"
+                label = "BASE PATTERN"
+                score_display = f"Potential satisfaction Score: <b>{score:.2f}</b>"
+
+            st.markdown(f"""
+            <div style='
+                background-color: #f8f9fa;
+                border-left: 5px solid {color};
+                padding: 12px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            '>
+                <div style='display: flex; justify-content: space-between;'>
+                    <b>{icon} {fpatterns}</b>
+                    <span style='color: {color}; font-weight: bold;'>{label}</span>
+                </div>
+                {f'<div style="margin-top: 8px; font-size: 0.9em; color: #555;">{score_display}</div>' if score_display else ''}
+            </div>
+            """, unsafe_allow_html=True)
+
+def topsisAffichage2(rankings, ontoManager, selectedSoftgoals):
     col_rec, col_patterns = st.columns([2, 8])
 
     with col_rec:
@@ -70,7 +144,6 @@ def topsisAffichage(rankings, ontoManager, selectedSoftgoals):
         """, unsafe_allow_html=True)
 
     with col_patterns:
-        # Trier les patterns par score décroissant
         sorted_patterns = sorted(rankings.items(), key=lambda x: x[1], reverse=True)
         
         for pattern, score in sorted_patterns:

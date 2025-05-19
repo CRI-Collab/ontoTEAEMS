@@ -11,7 +11,7 @@ Off-Chain_Data_Storage,,,,,,,
 Off-Chain_Data_Storage_Cryptograhic_Proof,+,,,+,+,--,++
 State_Channel,++,,+,-,,+,++
 Multiple_Authorization,-,,,+,+,,+
-Off-Chain_Secret_Enabled_Dynamic_Authorization,--,+,,,,--,
+Off-Chain_Secret_Enabled_Dynamic_Authorization,--,+,,--,,,++
 X-Confirmation,,,,++,++,++,
 Contract_Registry,-,+,,++,+,,+
 Data_Contract,,,,++,,,++

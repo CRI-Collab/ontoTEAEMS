@@ -1,6 +1,6 @@
 .PHONY: build push run
 
-DOCKER_IMAGE = eddy/ontoteams:v1
+DOCKER_IMAGE = eddy/ontoteams:v3
 
 build:
 	docker buildx build --platform linux/amd64 -t $(DOCKER_IMAGE) .

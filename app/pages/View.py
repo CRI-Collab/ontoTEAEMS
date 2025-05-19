@@ -60,41 +60,47 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="timeline">
-    <div class="timeline-item">
-        <div class="timeline-icon">1</div>
-        <div class="timeline-content">
-            <div class="expert-tag"><h4> 🧑‍💼 Business Expert</h4> </div>
-            <p><strong>Softgoals Prioritization:</strong> Define your business objectives and express your softgoals preferences<p>
-            <p><strong>Decision Authority:</strong><em> In case of trade-offs between softgoals</em>, resolves these trade-offs by making final prioritization</p>
-            <p><em>Your input guides the architecture generation process</em></p>
-        </div>
-    </div>
-    <div class="timeline-connector"></div>
-    <div class="timeline-item">
-        <div class="timeline-icon">2</div>
-        <div class="timeline-content">
-            <div class="expert-tag"> <h4>👨‍💻 Technical Expert</h4> </div>
-            <p>Review the softgoal maps and make technical decisions by selecting the appropriate architectural patterns.</p>
-            <p><em> In case of ambiguity, you can always ask the Business Expert to arbitrate.</em></p>
-        </div>
-    </div>
-""", unsafe_allow_html=True)
-
-col1, col2  = st.columns([1, 1])
+col1, col2 = st.columns([4, 1])
 with col1:
+    st.markdown("""
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-icon">1</div>
+            <div class="timeline-content">
+                <div class="expert-tag"><h4> 🧑‍💼 Business Expert</h4> </div>
+                <p><strong>Softgoals Prioritization:</strong> Define your business objectives and express your softgoals preferences<p>
+                <p><strong>Decision Authority:</strong><em> In case of trade-offs between softgoals</em>, resolves these trade-offs by making final prioritization</p>
+                <p><em>Your input guides the architecture generation process</em></p>
+            </div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-item">
+            <div class="timeline-icon">2</div>
+            <div class="timeline-content">
+                <div class="expert-tag"> <h4>👨‍💻 Technical Expert</h4> </div>
+                <p>Review the softgoal maps and make technical decisions by selecting the appropriate architectural patterns.</p>
+                <p><em> In case of ambiguity, you can always ask the Business Expert to arbitrate.</em></p>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="button-container2">', unsafe_allow_html=True)
     btn_business = st.button(
         "🧑‍💼 Business Expert View", 
         key="business",
         use_container_width=True
     )
-with col2:
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="button-container">', unsafe_allow_html=True)
     btn_technical = st.button(
         "👨‍💻 Technical Expert View", 
         key="technical",
         use_container_width=True
     )
+    st.markdown('</div>', unsafe_allow_html=True)
 
 if btn_business:
     st.balloons()

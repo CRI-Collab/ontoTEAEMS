@@ -1,10 +1,11 @@
-from utility.topsis import *
 import streamlit as st
+from utility.topsis import *
 from utility.utils import likertValue
 from ontology.loadOntology import OntologyManager
 from pages.TechnicalExpert import displayAlternatives, build_decision_matrix_for_topsis
 from dotenv import load_dotenv 
 import os, json
+import datetime
 
 load_dotenv()
 patternVariantPath = os.getenv('PATTERN_VARIANTS')
@@ -61,6 +62,11 @@ def calculate_topsis():
     load_css(cssPaths)
     selectedPattern = st.session_state.get("selectedPatterns", {})
     selectedSoftgoals = st.session_state.get("selectedSoftgoals", [])
+    #functional_patterns = st.session_state.get("functional_patterns", [])
+
+    if 'btn_disabled' not in st.session_state:
+        st.session_state.btn_disabled = False
+
     
     decision_matrix = build_decision_matrix_for_topsis()
     data = []
@@ -69,8 +75,8 @@ def calculate_topsis():
         data.append(row)
 
     decisionMatrix = pd.DataFrame(data, index=selectedPattern.keys(), columns=selectedSoftgoals)
-    
     softgoal_preferences = st.session_state.get("softpreferences", {})
+    non_functional_patterns = st.session_state.get("non_functional_patterns", [])
     weights = calculate_weightsBack(softgoal_preferences)
     
     criteria = {
@@ -88,64 +94,49 @@ def calculate_topsis():
     except Exception as e:
         st.error(f"Erreur lors de l'application de TOPSIS: {e}")
 
-def calculate_topsis2():
-    load_css(cssPaths)
-    #functional_patterns = st.session_state.get("functional_patterns", [])
-    selectedPattern = st.session_state.get("selectedPatterns", {})
-    selectedSofgoals = st.session_state.get("selectedSoftgoals", [])
-    
-    temp_matrix = {}
-    for pattern in selectedPattern:
-        if st.session_state.get(f"choix_original_{pattern}", False):
-            temp_matrix[pattern] = st.session_state.matriceA_dict.get(pattern, {})
-        elif st.session_state.get(f"choix_variant_{pattern}", False):
-            temp_matrix[pattern] = st.session_state.matriceB_dict.get(pattern, {})
-        else:
-            temp_matrix[pattern] = st.session_state.matriceA_dict.get(pattern, {})
-    
-    data = []
-    for pattern in selectedPattern:
-        row = [likertValue(temp_matrix[pattern].get(softgoal, 0)) for softgoal in selectedSofgoals]
-        data.append(row)
-
-    decisionMatrix = pd.DataFrame(data, index=selectedPattern, columns=st.session_state.selectedSoftgoals)
-    st.write("Matrix Decision", decisionMatrix)
-    
-    softgoal_preferences = st.session_state.get("softpreferences", {})
-    weights = calculate_weights(softgoal_preferences)
-    
-    criteria = {
-        softgoal: "max" if preference == 1 else "min"
-        for softgoal, preference in softgoal_preferences.items()
-    }
-    try:
-        rang = topsisAlgorithm(decisionMatrix, weights=list(weights.values()), criteria_directions=criteria)
-        topsisAffichage(rang, ontoManager, selectedSofgoals)
-
-    except Exception as e:
-        st.error(f"Erreur lors de l'application de TOPSIS: {e}")
-
-def execute():
-    calculate_topsis()
-    softgoal_preferences = st.session_state.get("softpreferences", {})
-    non_functional_patterns = st.session_state.get("non_functional_patterns", [])
-    
     variants_to_exclude = set()
     for variants in PATTERN_VARIANTS.values():
         variants_to_exclude.update(variants)
 
     nonfunctionalpatterns = [pattern for pattern in non_functional_patterns if pattern not in variants_to_exclude]
     
-    col1, col2 = st.columns([3, 1])
+    available_patterns = [
+    p for p in nonfunctionalpatterns 
+    if p not in st.session_state.get("nonFuncCache", [])
+    ]
+
+    col1, col2 = st.columns([5, 2])
     with col1:
-        if st.button("Back To Configuration Validation"):
-            st.session_state.step = "comparer"
+        if st.button("Back To Configuration Validation", 
+                     disabled=st.session_state.btn_disabled, key="back_button"):
+            st.session_state.step = "comparer"  
+            st.session_state.btn_disabled = False
             st.switch_page("pages/TechnicalExpert.py")
     with col2:
-        if st.button("📌 Show Non Functional Patterns"):
+        if st.button("📌 Show Non Functional Patterns",
+                     disabled=st.session_state.btn_disabled, key="show_button"):
             st.session_state.show_alternatives = True
+            st.session_state.buttons_disabled = False
+    
+    col3, col4, col5 = st.columns([2, 2, 2])
+    with col4:
+        if st.button("📤 End Process - Export Patterns"):
+            export_data = {
+                "selected_patterns": selectedPattern,
+                "selected_softgoals": selectedSoftgoals,
+                "softgoal_preferences": softgoal_preferences,
+                "timestamp": datetime.datetime.now().isoformat()
+            }
+            json_data = json.dumps(export_data, indent=2)
+            st.download_button(
+                label="Download selected patterns",
+                data=json_data,
+                file_name=f"configuration_export_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                mime="application/json"
+            )
     
     if st.session_state.get("show_alternatives", False):
-        displayAlternatives(nonfunctionalpatterns, softgoal_preferences)
+        displayAlternatives(available_patterns, softgoal_preferences)
+    
 
-execute()
+calculate_topsis()

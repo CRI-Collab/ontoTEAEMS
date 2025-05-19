@@ -28,19 +28,20 @@ h1 {
     border-radius: 8px;
 }
 
-/* Style des boutons */
-.stButton button {
-    background-color: #3498db; /* Couleur bleu */
+.stButton button  {
+    background: linear-gradient(135deg, #0F172A, #475569);
     color: white;
-    border-radius: 8px;
-    padding: 10px 20px;
+    font-weight: bold;
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
+    padding-top: 10px;
+    padding: 15px 30px;
 }
 
 .stButton button:hover {
-    background-color: #2980b9; /* Couleur bleu plus foncée au survol */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+    padding-top: 1.0rem;
 }
 
 /* Style des colonnes */
@@ -133,6 +134,14 @@ h1 {
     font-size: 0.9em;
     color: orange;
     margin-left: 10px;
+    
+}
+
+.pattern-sub-message {
+    font-size: 1.0em;
+    color: rgb(32, 185, 45);
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .sidebar-title {
@@ -141,6 +150,7 @@ h1 {
     color: #2e86de;
     margin-bottom: 20px;
 }
+
 .sidebar-text {
     font-size: 16px;
     color: #333;
@@ -243,4 +253,13 @@ h1 {
     background-color: #007bff;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-separator {
+    border-left: 3px solid #4a8bc9;
+    height: 100%;
+    margin: 0 5px;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #4a8bc9, #a2c4e6);
+    box-shadow: 0 0 5px rgba(74,139,201,0.3);
 }

@@ -220,64 +220,48 @@ def selectSoftgoals():
     softgoals = fetchSoftgoals(st.session_state.dbManager)
 
     def OptimizationRetour():
-        #priorities = {k: v for k, v in st.session_state.softpreferences.items() if v != 0}
         priorities = {k: v for k, v in st.session_state.softpreferences.items() if v in [0, 1]}
         if priorities:
             countMatch  = matchSoftgoal(st.session_state.softpreferences, st.session_state.allpatterns)
-            softgoalsConflict = conflictsSoftgoal(st.session_state.softpreferences, st.session_state.allpatterns)
-            col1, col2 = st.columns([1, 1])
-            with col1:
-                if countMatch:
-                    total_patterns = len(st.session_state.allpatterns)/2 + 0.5
-                    matched_count = len(countMatch)
-                    percentage = (matched_count / total_patterns) * 100
+            #softgoalsConflict = conflictsSoftgoal(st.session_state.softpreferences, st.session_state.allpatterns)
+            if countMatch:
+                total_patterns = len(st.session_state.allpatterns)/2 + 0.5
+                matched_count = len(countMatch)
+                percentage = (matched_count / total_patterns) * 100
 
-                    if percentage > 60:
-                        color = "green"
-                    elif percentage > 40:
-                        color = "orange"
-                    else:
-                        color = "red"
+                if percentage > 40:
+                    color = "green"
+                elif percentage > 20:
+                    color = "orange"
+                else:
+                    color = "red"
 
-                    progress_value = min(max(matched_count / total_patterns, 0.0), 1.0)
-                    st.progress(progress_value, f"Percentage: {percentage:.1f}%")
-                    st.markdown(f"<span style='color:{color}'>🎯 Matching patterns: {matched_count}/{total_patterns} patterns</span>", 
-                        unsafe_allow_html=True)
-                    #with st.expander("View matching patterns"):
-                    #    for pattern in countMatch:
-                    #        st.write(f"- {pattern}")
-                if not countMatch:
-                    recommendations = get_smart_recommendations(
-                        st.session_state.softpreferences,
-                        st.session_state.allpatterns
-                    )
-                    if recommendations:
-                        st.warning("🔍 Solutions disponibles en relâchant:")
-                        for i, (sgs, delta, new_matches) in enumerate(recommendations[:3]):
+                progress_value = min(max(matched_count / total_patterns, 0.0), 1.0)
+                st.progress(progress_value, f"Percentage: {percentage:.1f}%")
+                st.markdown(f"<span style='color:{color}'>🎯 Matching patterns: {matched_count}/{total_patterns} patterns</span>", 
+                    unsafe_allow_html=True)
+                    
+            if not countMatch:
+                recommendations = get_smart_recommendations(
+                    st.session_state.softpreferences,
+                    st.session_state.allpatterns
+                )
+                if recommendations:
+                    st.warning("🔍 Available solutions")
+                    for i, (sgs, delta, new_matches) in enumerate(recommendations[:3]):
+                        col1, col2 = st.columns(2)
+                        with col1:
                             st.success(f"Option {i+1}: Release {sgs} (activates {delta} patterns)")
-                            #with st.expander(f"Option {i+1}: Relâcher {sgs} (+{delta} patterns)"):
-                            #    st.write("Patterns qui deviendraient disponibles :")
-                            #    for p in new_matches[:5]:  # Affiche max 5 patterns
-                            #        st.write(f"- {p}")
+                        with col2:
                             if st.button(f"Apply this solution", key=f"apply_{i}"):
                                 for sg in sgs.split(" AND "):
                                     if sg in st.session_state.softpreferences:
                                         st.session_state.softpreferences[sg] = 0
                                 st.rerun()
-                    else:
-                         st.error("""
-                            🛑 Aucune solution trouvée même en relâchant les contraintes.  
-                            Essayez :
-                            1. D'ajouter plus de patterns à votre sélection initiale
-                            2. De réduire le nombre de critères 'Improve'
-                            """)
-                    #st.warning("No patterns satisfy the current criteria. You may need to adjust constraints (Best Effort).")
-        
-            #with col2:
-            #    if softgoalsConflict:
-            #        for (sg1, sg2), conflictdata in softgoalsConflict.items():
-            #            showTradeOffNFRs(sg1, sg2, conflictdata)
-    #####  #####  ##### ##### ##### ##### ##### #####
+                else:
+                    st.warning("🛑 No patterns satisfy the current criteria. You may need to adjust constraints (Best Effort).")
+
+#####  #####  ##### ##### ##### ##### ##### #####
     col1, col2 = st.columns([1, 3])
     with col1:
         st.markdown("### Business Preferences Configuration")

@@ -49,6 +49,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     flex-grow: 1;
     border-left: 4px solid #4F46E5;
+    min-height: 180px;
 }
 
 .timeline-content h4 {
@@ -69,38 +70,52 @@ body {
 
 /* Banner Styles */
 .banner {
-    background-color: #1E3A8A;
-    color: white;
+    background-color: #E0E7FF;
+    color: #1E3A8A;
+    font-weight: bold;
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 1rem;
-}
-
-.banner2 {
-    background-color: #dfdb57;
-    color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    
 }
 
 .banner h2 {
-    color: white;
+    display: inline-block;
+    color: #1E3A8A;
     margin-top: 0;
+    font-weight: bold;
 }
+
 
 /* Button Styles */
 .stButton>button {
+    
     background: linear-gradient(135deg, #4F46E5, #10B981);
     color: white;
     font-weight: bold;
     border: none;
     transition: all 0.3s;
+    padding-top: 10px;
 }
 
 .stButton>button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+    padding-top: 1.0rem;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-top: 11.5rem;
+}
+
+.button-container2 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-top: 7.5rem;
 }
 
 /* Footer Styles */

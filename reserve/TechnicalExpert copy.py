@@ -6,11 +6,11 @@ st.set_page_config(
 
 import pandas as pd
 import os, json
+#from sympy import N
 from utility.utils import *
 from utility.topsis import *
 from ontology.loadOntology import OntologyManager
 from utility.patternManager import update_functional_patterns_with_variants
-import time
 
 current_dir = os.path.dirname(__file__)
 ONTOLOGY_PATH = os.path.join(current_dir, "./ontology/TestMine.owl")
@@ -126,6 +126,9 @@ def recommendationWithDecision(pattern, decision, patternScore, variantpatternSc
         recommendations = decisionWithOutVarianrts(pattern, decision, patternScore, variantpatternScore)
 
     st.session_state.selectedPatterns.update(recommendations)
+   
+    #st.session_state.selectedPatterns = recommendations
+    #print("Recommendations with Decision:", st.session_state.selectedPatterns)
     return recommendations
 
 ######### Module pour les recommandations basées sur les préférences sans Decision #########
@@ -140,14 +143,7 @@ def checkPreferences(scores, softgoal_preferences):
 
 def noDecisionWithVariants(pattern, softgoal_preferences):
     recommendations = {}
-    #variants = PATTERN_VARIANTS[pattern]
-    variants = PATTERN_VARIANTS.get(pattern, [])
-    
-    # Check if the pattern has variants
-    if not variants:    
-        recommendations[pattern] = {"recommendation": "Aucune variante ne correspond aux préférences", "scores": {}}
-        return recommendations
-    
+    variants = PATTERN_VARIANTS[pattern]
     best_variant = None
 
     for variant in variants:
@@ -167,24 +163,6 @@ def noDecisionWithVariants(pattern, softgoal_preferences):
         recommendations[pattern] = {"recommendation": f"{best_variant}_varII", "scores": scoresVarPat}
     else:
         recommendations[pattern] = {"recommendation": "Aucune variante ne correspond aux préférences", "scores": {}}
-
-    return recommendations
-
-def noDecisionWithVariants2(variant, softgoal_preferences):
-    scoresPat = st.session_state.matriceA_dict.get(variant, {})
-    scoresVarPat = st.session_state.matriceB_dict.get(variant, {})
-
-    isOKPattern = checkPreferences(scoresPat, softgoal_preferences)
-    isOKPatternVariant = checkPreferences(scoresVarPat, softgoal_preferences)
-
-    recommendations = {}
-
-    if isOKPattern:
-        recommendations[variant] = {"recommendation": f"{variant}_orgII", "scores": scoresPat}
-    elif isOKPatternVariant:
-        recommendations[variant] = {"recommendation": f"{variant}_varII", "scores": scoresVarPat}
-    else:
-        recommendations[variant] = {"recommendation": "Aucune variante ne correspond aux préférences", "scores": {}}
 
     return recommendations
 
@@ -213,6 +191,8 @@ def recommendationWithOutDecision(pattern, softgoal_preferences):
         recommendations = noDecisionWithOutVariants(pattern, softgoal_preferences)
     
     st.session_state.selectedPatterns.update(recommendations)
+    #st.session_state.selectedPatterns = recommendations
+    #print("Recommendations without Decision:", st.session_state.selected_patterns_variants)
     return recommendations
 
 ######### Module pour les affichages de recommandations #########
@@ -228,10 +208,6 @@ def findTypeOfRecommendations(recommendations, softgoal_preferences):
             NoMatchRecommandations[pattern] = data
         else:
             matchRecommandations[pattern] = data
-    
-    # Stocker les deux catégories dans session_state
-    st.session_state.matchRecommandations = matchRecommandations
-    st.session_state.NoMatchRecommandations = NoMatchRecommandations
 
     if matchRecommandations:
         st.markdown("""
@@ -243,6 +219,7 @@ def findTypeOfRecommendations(recommendations, softgoal_preferences):
         </div>
         """, unsafe_allow_html=True)
 
+        st.write("")
         nb_items = len(matchRecommandations)
         if nb_items == 1: ## Matched Pattern = 1
             cols = st.columns(1)
@@ -250,10 +227,18 @@ def findTypeOfRecommendations(recommendations, softgoal_preferences):
                 with col:
                     fpatterns = pattern.replace("_", " ")
                     with st.container(border=True):
+                        scoresPat = st.session_state.matriceA_dict.get(pattern, {})
+                        scoresVarPat = st.session_state.matriceB_dict.get(pattern, {})
+                        sgmapX = mapStyles(scoresPat)
+                        sgmapY = mapStyles(scoresVarPat)
+
                         st.markdown(f"""
                         <div class="pattern-container">
                             <span class="pattern-title">{fpatterns} </span>
                         </div>""", unsafe_allow_html=True)
+
+                        mapdisplay = [generateMap(sgmapX, ""), generateMap(sgmapY, "")]
+                        st.markdown("\n".join(mapdisplay), unsafe_allow_html=True)
 
                         for softgoal, score in data["scores"].items():
                             if softgoal in softgoal_preferences:
@@ -264,11 +249,18 @@ def findTypeOfRecommendations(recommendations, softgoal_preferences):
                 with cols[idx % 2]:
                     fpatterns = pattern.replace("_", " ")
                     with st.container(border=True):
+                        scoresPat = st.session_state.matriceA_dict.get(pattern, {})
+                        scoresVarPat = st.session_state.matriceB_dict.get(pattern, {})
+                        sgmapX = mapStyles(scoresPat)
+                        sgmapY = mapStyles(scoresVarPat)
 
                         st.markdown(f"""
                         <div class="pattern-container">
                             <span class="pattern-title">{fpatterns} </span>
                         </div>""", unsafe_allow_html=True)
+
+                        mapdisplay = [generateMap(sgmapX, ""), generateMap(sgmapY, "")]
+                        st.markdown("\n".join(mapdisplay), unsafe_allow_html=True)
 
                         for softgoal, score in data["scores"].items():
                             if softgoal in softgoal_preferences:
@@ -296,166 +288,70 @@ def findTypeOfRecommendations(recommendations, softgoal_preferences):
                 </div>
             </div>
             """,
+            unsafe_allow_html=True
+        )
 
-            unsafe_allow_html=True)
-        for pattern, data in NoMatchRecommandations.items():
-            fpatterns = pattern.replace("_", " ")
+        cols = st.columns(2)
+        for i, (pattern, data) in enumerate(NoMatchRecommandations.items()):
+            col = cols[i % 2]
+            with col:
+                fpatterns = pattern.replace("_", " ")
 
-            with st.container(border=True):
-                st.markdown(f"""
-                <div class="pattern-container">
-                    <span class="pattern-title">{fpatterns}</span>
-                    <span class="pattern-message">No variant exactly matches your softgoal preferences</span>
-                </div>
-                """, unsafe_allow_html=True)
+                with st.container(border=True):
+                    st.markdown(f"""
+                    <div class="pattern-container">
+                        <span class="pattern-title">{fpatterns}</span>
+                        <span class="pattern-message">No variant exactly matches your softgoal preferences</span>
+                    </div>
+                    """, unsafe_allow_html=True)
 
-                if pattern in PATTERN_VARIANTS and PATTERN_VARIANTS[pattern]:
-                    displayVariants(pattern, softgoal_preferences)
-                else:
-                    displaySinglePattern(pattern, softgoal_preferences)
+                    if pattern in PATTERN_VARIANTS and PATTERN_VARIANTS[pattern]:
+                        displayVariants(pattern, softgoal_preferences)
+                    else:
+                        displaySinglePattern(pattern, softgoal_preferences)
 
 def displayVariants(pattern, softgoal_preferences):
     variants = PATTERN_VARIANTS[pattern]
+    col1, col2 = st.columns(2)
+    for i, variant in enumerate(variants):
+        current_col = col1 if i % 2 == 0 else col2
+        with current_col:
+            scores_A = st.session_state.matriceA_dict.get(variant, {})
+            scores_B = st.session_state.matriceB_dict.get(variant, {})
+            sgmap2 = mapStyles(scores_A)
+            sgmap3 = mapStyles(scores_B)
+            content = [generateMap(sgmap2, ""), generateMap(sgmap3, "")]
+            st.markdown("\n".join(content), unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns([1, 2, 2])
-    with col1:
-        st.markdown(f"""
-            <div class="pattern-container">
-                <span class="pattern-sub-message">Softgoals</span>
-            </div> """, unsafe_allow_html=True)
+            for softgoal, score in scores_A.items():
+                if softgoal in softgoal_preferences:
+                    displayBar(f"{softgoal}", likertValue(score))
 
-    with col2:
-         st.markdown(f"""
-            <div class="pattern-container">
-                <span class="pattern-sub-message">{variants[0].replace('_', ' ')}</span>
-            </div> """, unsafe_allow_html=True)
-         
-    with col3:
-        if len(variants) > 1:
-            st.markdown(f"""
-            <div class="pattern-container">
-                <span class="pattern-sub-message">{variants[1].replace('_', ' ')}</span>
-            </div> """, unsafe_allow_html=True)
+            for softgoal, score in scores_B.items():
+                if softgoal in softgoal_preferences:
+                    displayBar(f"{softgoal}", likertValue(score))
 
-    scores_VA = st.session_state.matriceA_dict.get(variants[0], {})
-    scores_VB = st.session_state.matriceB_dict.get(variants[1], {}) if len(variants) > 1 else {}
-
-    for softgoal in softgoal_preferences:
-        col1, col2, col3 = st.columns([1, 2, 2])
-        with col1:
-            st.markdown(f"**{softgoal}**")
-        with col2:
-            score1 = scores_VA.get(softgoal)
-            if score1 is not None:
-                displayBarVariant(likertValue(score1))
-        with col3:
-            if len(variants) > 1:
-                score2 = scores_VB.get(softgoal)
-                if score2 is not None:
-                    displayBarVariant(likertValue(score2))
-
-    def updateCheckboxZ(chosen_variant, type):
-        key_chosen = f"choix_variant_{chosen_variant}"
-        is_checked = st.session_state.get(key_chosen, False)
-
-        if is_checked:
-            for variant in variants:
-                key = f"choix_variant_{variant}"
-                st.session_state[key] = (variant == chosen_variant)
-                if variant != chosen_variant and 'selectedPatterns' in st.session_state:
-                    st.session_state.selectedPatterns.pop(variant, None)
-        else:
-            for variant in variants:
-                key = f"choix_variant_{variant}"
-                st.session_state[key] = False
-            if 'selectedPatterns' in st.session_state:
+            def update_choice3(chosen_variant, type):
                 for variant in variants:
-                    st.session_state.selectedPatterns.pop(variant, None)
+                    key = f"choix_variant_{variant}"
+                    st.session_state[key] = (variant == chosen_variant)
 
-    col1, col2, col3 = st.columns([1, 2, 2])
-    with col2:
-        is_selected1 = st.checkbox(
-            f"Select {variants[0].replace('_', ' ')}",
-            key=f"choix_variant_{variants[0]}",
-            value=st.session_state.get(f"choix_variant_{variants[0]}", False),
-            on_change=updateCheckboxZ,
-            args=(variants[0], "variant"),
-        )
-        if is_selected1:
-            if variants[0] not in st.session_state.selectedPatterns:
-                st.session_state.selectedPatterns[variants[0]] = {
-                    "recommendation": variants[0],
-                    "scores": scores_VA
-                }
-        
-        elif pattern in st.session_state.get('selectedPatterns', {}):
-            del st.session_state.selectedPatterns[pattern]
-
-    if len(variants) > 1:
-        with col3:
-            is_selected2 = st.checkbox(
-                f"Select {variants[1].replace('_', ' ')}",
-                key=f"choix_variant_{variants[1]}",
-                value=st.session_state.get(f"choix_variant_{variants[1]}", False),
-                on_change=updateCheckboxZ,
-                args=(variants[1], "variant"),
+            vari = variant.replace("_", " ")
+            st.checkbox(
+                f"{vari}",
+                key=f"choix_variant_{variant}",
+                value=st.session_state.get(f"choix_variant_{variant}"),
+                on_change=update_choice3,
+                args=(variant, "variant"),
             )
-            if is_selected2:
-                if variants[1] not in st.session_state.selectedPatterns:
-                    st.session_state.selectedPatterns[variants[1]] = {
-                        "recommendation": variants[1],
-                        "scores": scores_VB
-                    }               
-            elif pattern in st.session_state.get('selectedPatterns', {}):
-                del st.session_state.selectedPatterns[pattern]
-    
-    with st.expander("Show More Softgoals", expanded=False):
-        sgmap_1 = mapStyles(scores_VA)
-        sgmap_2 = mapStyles(scores_VB) if len(variants) > 1 else {"improved": [], "harmed": [], "neutral": []}
-        
-        allImpacts = set(sgmap_1["improved"] + sgmap_1["harmed"] + 
-            (sgmap_2["improved"] + sgmap_2["harmed"] if len(variants) > 1 else []))
-
-        finalImpact = [sg for sg in allImpacts if sg not in softgoal_preferences]
-        cols = st.columns([1, 2, 2] if len(variants) > 1 else [1, 2])
-        with cols[0]:
-            st.markdown("**Softgoal**")
-        with cols[1]:
-            st.markdown(f"**{variants[0].replace('_', ' ')}**")
-        if len(variants) > 1:
-            with cols[2]:
-                st.markdown(f"**{variants[1].replace('_', ' ')}**")
-    
-        if finalImpact:
-            for softgoal in sorted(finalImpact):
-                cols = st.columns([1, 2, 2] if len(variants) > 1 else [1, 2])
-                
-                with cols[0]:
-                    st.markdown(f"{softgoal}")
-                
-                with cols[1]:
-                    if softgoal in sgmap_1["improved"]:
-                        st.markdown("🟢 Improved")
-                    elif softgoal in sgmap_1["harmed"]:
-                        st.markdown("🔴 Harmed")
-                    else:
-                        st.markdown("⚪ Neutral")
-                
-                if len(variants) > 1:
-                    with cols[2]:
-                        if softgoal in sgmap_2["improved"]:
-                            st.markdown("🟢 Improved")
-                        elif softgoal in sgmap_2["harmed"]:
-                            st.markdown("🔴 Harmed")
-                        else:
-                            st.markdown("⚪ Neutral")
-        else:
-            st.info("No impacted softgoals to display")
 
 def displaySinglePattern(pattern, softgoal_preferences):
     with st.container(border=True):
         scoresPat = st.session_state.matriceA_dict.get(pattern, {})
-   
+        sgmapX = mapStyles(scoresPat)
+        mapdisplay = [generateMap(sgmapX, "")]
+        st.markdown("\n".join(mapdisplay), unsafe_allow_html=True)
+
         for softgoal, score in scoresPat.items():
             if softgoal in softgoal_preferences:
                 displayBar(f"{softgoal}", likertValue(score))
@@ -470,10 +366,102 @@ def PatternRecommendations(pattern, patternScore, variantpatternScore, softgoal_
         recommendations = recommendationWithOutDecision(pattern, softgoal_preferences)
 
     return recommendations
+    #findTypeOfRecommendations(recommendations, softgoal_preferences)
 
-######### Module pour les Patterns non-fonctionnelles #########
-  ######### ########### ######### ######### ######### #########
+def displayAlternatives2(noFuncPatterns, softgoal_preferences):
+    
+    st.divider()  # Ligne de séparation au début
+    st.markdown("### Non-Functional Patterns")
+    st.markdown('''<span style="color: #FFA500; font-weight: bold;">The following patterns, if chosen, could potentially help improve your app design:</span>''', 
+                unsafe_allow_html=True)
+    st.divider()
+    
+    selectedSoftgoals = set(softgoal_preferences.keys())
+    containers = [st.columns(2) for _ in range((len(noFuncPatterns) + 1) // 2)]
+    containers = [col for row in containers for col in row]
+
+    alternPattern = False 
+    if "selected_alternatives" not in st.session_state:
+        st.session_state.selected_alternatives = []
+
+    data = []
+    patternsToCompare = []
+
+    for idx, pattern in enumerate(noFuncPatterns):
+        scores = st.session_state.matriceA_dict.get(pattern, None)
+        if scores is None:
+            scores = st.session_state.matriceB_dict.get(pattern, None)
+        if scores is None:
+            continue
+
+        iSoftgoals = [softgoal for softgoal in selectedSoftgoals if likertValue(scores.get(softgoal, "")) > 0]
+        wSoftgoals = [softgoal for softgoal in selectedSoftgoals if likertValue(scores.get(softgoal, "")) < 0]
+
+        if iSoftgoals:
+            alternPattern = True
+            patternsToCompare.append(pattern)
+            row = [likertValue(scores.get(softgoal, 0)) for softgoal in selectedSoftgoals]
+            data.append(row)
+
+    if alternPattern:
+        decisionMatrix = pd.DataFrame(data, index=patternsToCompare, columns=list(selectedSoftgoals))
+        weights = calculate_weights(softgoal_preferences)
+        criteria = {
+            softgoal: "max" if preference == 1 else "min"
+            for softgoal, preference in softgoal_preferences.items()
+        }
+
+        try:
+            topsisScore = topsisAlgorithm(decisionMatrix, weights=list(weights.values()), criteria_directions=criteria)
+        except Exception as e:
+            st.error(f"Erreur lors de l'application de TOPSIS: {e}")
+            topsisScore = {}
+
+        for idx, pattern in enumerate(patternsToCompare):
+            scores = st.session_state.matriceA_dict.get(pattern, {})
+            iSoftgoals = [softgoal for softgoal in selectedSoftgoals if likertValue(scores.get(softgoal, "")) > 0]
+            wSoftgoals = [softgoal for softgoal in selectedSoftgoals if likertValue(scores.get(softgoal, "")) < 0]
+
+            with containers[idx].container(border=True):
+                st.write(f"#### {pattern}")
+                st.success("**Improve:** " + ", ".join(iSoftgoals))
+                if wSoftgoals:
+                    st.error("**Worsen:** " + ", ".join(wSoftgoals))
+                
+                if pattern in topsisScore:
+                    st.write(f"**Potential Satisfaction Score:** {topsisScore[pattern] * 100:.2f}%")
+                
+                is_selected = st.checkbox(
+                    f"{pattern}",
+                    key=f"checkbox_{pattern}",
+                    value=pattern in st.session_state.selected_alternatives
+                )
+                
+                if is_selected and pattern not in st.session_state.selected_alternatives:
+                    st.session_state.selected_alternatives.append(pattern)
+                elif not is_selected and pattern in st.session_state.selected_alternatives:
+                    st.session_state.selected_alternatives.remove(pattern)
+    else:
+        st.warning("Aucune alternative ne satisfait au moins un des softgoals sélectionnés.")
+
+    if st.button("Validate"):
+        functional_patterns = update_functional_patterns_with_variants(st.session_state.functional_patterns, PATTERN_VARIANTS)
+        
+        for pattern in st.session_state.selected_alternatives:
+            if pattern not in functional_patterns:
+                functional_patterns.append(pattern)
+        
+        st.session_state.functional_patterns = functional_patterns
+        st.session_state.selected_alternatives = []
+ 
+        st.session_state.non_functional_patterns = [
+            pattern for pattern in st.session_state.non_functional_patterns
+            if pattern not in functional_patterns ]
+
+        st.rerun()
+
 def displayAlternatives(noFuncPatterns, softgoal_preferences):
+    # Section Header with Professional Styling
     st.divider()
     st.markdown("## 🏗 Non-Functional Architecture Patterns")
     st.markdown("""
@@ -483,25 +471,25 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
     """, unsafe_allow_html=True)
     st.divider()
 
+    # Initialize session state and variables
     selectedSoftgoals = set(softgoal_preferences.keys())
     if "selected_alternatives" not in st.session_state:
         st.session_state.selected_alternatives = []
 
+    # Create responsive grid layout
     cols = st.columns(2)
     containers = []
     for i in range(len(noFuncPatterns)):
         containers.append(cols[i % 2].container(border=True))
 
+    # Data processing
     patternsToCompare = []
     data = []
     alternPattern = False
 
     for idx, pattern in enumerate(noFuncPatterns):
-        scores = st.session_state.matriceA_dict.get(pattern, None)
-        if scores is None:
-            scores = st.session_state.matriceB_dict.get(pattern, None)
-
-        if scores is None:
+        scores = st.session_state.matriceA_dict.get(pattern) or st.session_state.matriceB_dict.get(pattern)
+        if not scores:
             continue
 
         iSoftgoals = [sg for sg in selectedSoftgoals if likertValue(scores.get(sg, "")) > 0]
@@ -512,8 +500,10 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
             patternsToCompare.append(pattern)
             data.append([likertValue(scores.get(sg, 0)) for sg in selectedSoftgoals])
 
+    # Display patterns
     if alternPattern:
         try:
+            # TOPSIS Calculation
             decisionMatrix = pd.DataFrame(data, index=patternsToCompare, columns=list(selectedSoftgoals))
             weights = calculate_weights(softgoal_preferences)
             criteria = {sg: "max" if pref == 1 else "min" for sg, pref in softgoal_preferences.items()}
@@ -522,7 +512,7 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
             st.error(f"Decision matrix error: {str(e)}")
             topsisScore = {}
 
-        ##Affichage des patterns
+        # Pattern Cards Display
         for idx, pattern in enumerate(patternsToCompare):
             scores = st.session_state.matriceA_dict.get(pattern, {})
             iSoftgoals = [sg for sg in selectedSoftgoals if likertValue(scores.get(sg, "")) > 0]
@@ -530,6 +520,7 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
 
             fpatterns = pattern.replace("_", " ")
             with containers[idx]:
+                # Header with score badge
                 col1, col2 = st.columns([3, 1])
                 with col1:
                     st.markdown(f"##### {fpatterns}")
@@ -548,10 +539,12 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
                         </div>
                         """, unsafe_allow_html=True)
                 
+                # Benefits section
                 with st.expander("**Quality Improvements**", expanded=True):
                     for sg in iSoftgoals:
                         st.success(f"✓ {sg}")
                 
+                # Trade-offs section
                 if wSoftgoals:
                     with st.expander("**Potential Trade-offs**", expanded=False):
                         for sg in wSoftgoals:
@@ -559,8 +552,7 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
                 
                 is_selected = st.checkbox(
                     "Select this pattern",
-                    #key=f"cb_{hash(pattern)}",
-                    key=f"checkbox_{pattern}",
+                    key=f"cb_{hash(pattern)}",
                     value=pattern in st.session_state.selected_alternatives,
                     help=f"Select {pattern} for implementation"
                 )
@@ -577,74 +569,28 @@ def displayAlternatives(noFuncPatterns, softgoal_preferences):
         Consider adjusting your softgoal preferences.
         """)
 
-    if "show_hidden_patterns" not in st.session_state:
-        st.session_state.show_hidden_patterns = False
- 
-    if st.button("✅ Validate Selection"):
+    if st.button("✅ Validate Selection", type="primary", use_container_width=True):
         if not st.session_state.selected_alternatives:
             st.warning("Please select at least one pattern before validating")
             st.stop()
-        
-        if "selectedPatterns" not in st.session_state:
-            st.session_state.selectedPatterns = {}
-        if "nonFuncCache" not in st.session_state:
-            st.session_state.nonFuncCache = []
             
-        new_patterns_added = False
-        for pattern in st.session_state.selected_alternatives:
-            if pattern not in st.session_state.nonFuncCache:
-                scores = (st.session_state.matriceA_dict.get(pattern) or 
-                        st.session_state.matriceB_dict.get(pattern))
-                if scores:
-                    st.session_state.selectedPatterns[pattern] = {
-                        'recommendation': pattern,
-                        'scores': scores
-                    }
-                    st.session_state.nonFuncCache.append(pattern)
-                    new_patterns_added = True
+        functional_patterns = update_functional_patterns_with_variants(
+            st.session_state.functional_patterns, 
+            PATTERN_VARIANTS
+        )
         
-        if new_patterns_added:
-            st.session_state.show_hidden_patterns = True
-        
+        # Update patterns
+        st.session_state.functional_patterns = list(
+            set(functional_patterns + st.session_state.selected_alternatives)
+        )
         st.session_state.selected_alternatives = []
         st.session_state.non_functional_patterns = [
             p for p in st.session_state.non_functional_patterns
-            if p not in st.session_state.nonFuncCache
+            if p not in st.session_state.functional_patterns
         ]
-        st.rerun()
         
-    if st.session_state.show_hidden_patterns:
-        with st.sidebar:
-            with st.container(border=True):
-                st.markdown("**Selected Non-Functional Patterns**")
-                st.markdown("""<div style="
-                    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
-                    border-radius: 8px;
-                    padding: 15px;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-                    border-left: 4px solid #4e73df;
-                    margin-bottom: 20px;
-                ">""", unsafe_allow_html=True)
-                st.markdown("<div style='margin-bottom: 10px; color: #666; font-size: 14px;'>"
-                        "You can remove patterns to make them available again</div>", 
-                        unsafe_allow_html=True)
-    
-                pdisplay = list(st.session_state.nonFuncCache)
-                
-                for pattern in pdisplay:
-                    cols = st.columns([2, 2])
-                    with cols[0]:
-                        st.markdown(f"{pattern.replace('_', ' ')}")
-                    with cols[1]:
-                        delete_key = f"delete_{pattern}_{int(time.time())}"
-                        if st.button("🗑️ Delete", key=delete_key):
-                            st.session_state.selectedPatterns.pop(pattern, None)
-                            st.session_state.nonFuncCache.remove(pattern)
-                            st.rerun()
-
-                            if not st.session_state.nonFuncCache:
-                                st.session_state.show_hidden_patterns = False
-                            st.rerun()
+        st.success("Pattern selection updated successfully!")
+        st.rerun()
 
 def build_decision_matrix_for_topsis():
     selected_patterns_variants = st.session_state.get("selectedPatterns", {})
@@ -655,192 +601,36 @@ def build_decision_matrix_for_topsis():
     selected_patterns_variants = st.session_state.selectedPatterns
     matrice_combined = {**st.session_state.matriceB_dict, **st.session_state.matriceA_dict}
 
+
     decision_matrix = []
     for pattern, variant_info in selected_patterns_variants.items():
         variant = variant_info["recommendation"]
         scores = matrice_combined.get(variant, {})
+        
+        #scores = st.session_state.matriceA_dict.get(variant, {})
+        #if not scores:
+        #    scores = st.session_state.matriceB_dict.get(variant, {})
         decision_matrix.append(scores)
     return decision_matrix
-
-def checkIncompatibilityBack(selectedPatterns, softgoal_preferences):
-    alerts = []
-    
-    if not selectedPatterns or not softgoal_preferences:
-        return alerts
-    
-    impacts = {sg: {'positive': [], 'negative': []} for sg in softgoal_preferences}
-    for pattern, data in selectedPatterns.items():
-        if not isinstance(data, dict):
-            continue
-            
-        variant = data.get('recommendation')
-        if not variant:
-            continue
-            
-        scores_A = st.session_state.matriceA_dict.get(variant, {})
-        scores_B = st.session_state.matriceB_dict.get(variant, {})
-        
-        for sg in softgoal_preferences:
-            score_symbol = scores_A.get(sg, scores_B.get(sg))
-            if score_symbol is None:
-                continue
-                
-            score = likertValue(score_symbol)
-            if score > 0:
-                impacts[sg]['positive'] = [(pattern, variant, score)]
-            elif score < 0:
-                impacts[sg]['negative'] = [(pattern, variant, score)]
-    
-    for sg, data in impacts.items():
-        if data['positive'] and data['negative']:
-            pos_items = data['positive'][0]
-            neg_items = data['negative'][0]
-
-            alert_msg = (
-                f"**Architectural Conflict**\n\n"
-                f"• Softgoal: **{sg}**\n\n"
-                f"• Improves: {pos_items}\n\n"
-                f"• Degrades: {neg_items}\n\n"
-                f"This combination creates an inconsistency in your architecture\n\n"
-                f"**>Re-evaluate your choices or consult the Domain Expert by clicking in Domain Expert Decision**."
-            )
-            alerts.append(alert_msg)
-    return alerts
-
-def checkIncompatibility(selectedPatterns, softgoal_preferences):
-    alerts = []
-
-    if not selectedPatterns or not softgoal_preferences:
-        return alerts
-    pattern_scores = {pattern: {} for pattern in selectedPatterns}
-
-    for pattern, data in selectedPatterns.items():
-        if not isinstance(data, dict):
-            continue
-
-        variant = data.get('recommendation')
-        if not variant:
-            continue
-
-        scores_A = st.session_state.matriceA_dict.get(variant, {})
-        scores_B = st.session_state.matriceB_dict.get(variant, {})
-
-        for sg in softgoal_preferences:
-            score_symbol = scores_A.get(sg, scores_B.get(sg))
-            if score_symbol is None:
-                continue
-
-            score = likertValue(score_symbol)
-            pattern_scores[pattern][sg] = score
-
-    if len(pattern_scores) == 2:
-        patterns = list(pattern_scores.keys())
-        p1, p2 = patterns[0], patterns[1]
-
-        for sg in softgoal_preferences:
-            score1 = pattern_scores[p1].get(sg)
-            score2 = pattern_scores[p2].get(sg)
-
-            if score1 is None or score2 is None:
-                continue
-
-            if score1 * score2 < 0:
-                pos_pattern = (p1, score1) if score1 > 0 else (p2, score2)
-                neg_pattern = (p1, score1) if score1 < 0 else (p2, score2)
-
-                #print(f" for {sg} Positive: {pos_pattern}")
-                #print(f" for {sg} Negative: {neg_pattern}")
-
-                alert_msg = (
-                    f"**Architectural Conflict**\n\n"
-                    f"• Softgoal: **{sg}**\n\n"
-                    f"• Improves: {pos_pattern[0]}\n\n"
-                    f"• Degrades: {neg_pattern[0]}\n\n"
-                    f"This combination creates an inconsistency in your architecture\n\n"
-                    f"**> Re-evaluate your choices or consult the Domain Expert by clicking in Domain Expert Decision**."
-                )
-                alerts.append(alert_msg)
-            #print("*********************")
-
-    return alerts
-
-def checkIncompatibility2(selectedPatterns, softgoal_preferences):
-    alerts = []
-
-    if not selectedPatterns or not softgoal_preferences:
-        return alerts
-
-    pattern_scores = {pattern: {} for pattern in selectedPatterns}
-
-    # Récupérer les scores pour chaque pattern
-    for pattern, data in selectedPatterns.items():
-        if not isinstance(data, dict):
-            continue
-
-        variant = data.get('recommendation')
-        if not variant:
-            continue
-
-        scores_A = st.session_state.matriceA_dict.get(variant, {})
-        scores_B = st.session_state.matriceB_dict.get(variant, {})
-
-        for sg in softgoal_preferences:
-            score_symbol = scores_A.get(sg, scores_B.get(sg))
-            if score_symbol is None:
-                continue
-
-            score = likertValue(score_symbol)
-            pattern_scores[pattern][sg] = score
-
-    # Comparer les scores de tous les patterns entre eux pour chaque softgoal
-    for sg in softgoal_preferences:
-        improving = []
-        degrading = []
-
-        for pattern, scores in pattern_scores.items():
-            score = scores.get(sg)
-            if score is None:
-                continue
-            if score > 0:
-                improving.append((pattern, score))
-            elif score < 0:
-                degrading.append((pattern, score))
-
-        # S'il y a des patterns qui améliorent ET d'autres qui dégradent le même softgoal
-        if improving and degrading:
-            improve_names = ', '.join([p for p, _ in improving])
-            degrade_names = ', '.join([p for p, _ in degrading])
-
-            alert_msg = (
-                f"**Architectural Conflict**\n\n"
-                f"• Softgoal: **{sg}**\n\n"
-                f"• Improves: {improve_names}\n\n"
-                f"• Degrades: {degrade_names}\n\n"
-                f"This combination creates an inconsistency in your architecture.\n\n"
-                f"**> Re-evaluate your choices or consult the Domain Expert by clicking on Domain Expert Decision.**"
-            )
-            alerts.append(alert_msg)
-
-    return alerts
 
 def comparaisonPatterns():
     load_css(cssPaths)    
     st.markdown("""
     <div class="technical-expert-title">⚙️ Technical Expert Configuration</div>
     """, unsafe_allow_html=True)
-    
     if "current_pattern_index" not in st.session_state:
         st.session_state.current_pattern_index = 0
 
     patterns_to_compare = st.session_state.get("patterns_to_compare", [])
+
+    if not patterns_to_compare:
+        st.warning("Aucun pattern à comparer.")
+        return
+
     softgoal_preferences = st.session_state.get("softpreferences", {})
     functional_patterns = st.session_state.get("functional_patterns", [])
     functional_patterns = update_functional_patterns_with_variants(functional_patterns, PATTERN_VARIANTS)
 
-    if not patterns_to_compare:
-        st.warning("Nothing to compare. Please select patterns to compare.")
-        return
-    
     recommendations = {}
     for pattern in functional_patterns:
         patternScore = st.session_state.matriceA_dict.get(pattern, {})
@@ -862,25 +652,9 @@ def comparaisonPatterns():
 
     with col5:
         if st.button("Validate Confguration"):
-            st.session_state.force_clean = True
-            
-            filtered_patterns = {
-                pattern: data for pattern, data in st.session_state.selectedPatterns.items()
-                if pattern not in st.session_state.get('matchRecommandations', {})
-            }
-
-            alerts = checkIncompatibility2(filtered_patterns, softgoal_preferences)   
-            if alerts:
-                
-                with st.container():
-                    for alert in alerts:
-                        st.error(alert, icon="⚠️")
-                        st.stop()
-            
-            else:
-                st.session_state.step = "final"
-                build_decision_matrix_for_topsis()
-                st.switch_page("pages/FinalConfiguration.py")
-                st.rerun()
+            st.session_state.step = "final"
+            build_decision_matrix_for_topsis()
+            #print("Decision Matrix for TOPSIS:", decision_matrix)
+            st.switch_page("pages/FinalConfiguration.py")
 
 comparaisonPatterns()

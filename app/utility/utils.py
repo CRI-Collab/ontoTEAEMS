@@ -22,7 +22,7 @@ def likertValue(value):
     scale = { "--": -2, "-": -1, "": 0, "+": 1, "++": 2 }
     return scale.get(value, 0)
 
-def displayBar(label, value):
+def displayBar2(label, value):
     width = "0%" if value == 0 else "50%" if value == 1 else "100%"
     color = "lightgray" if value == 0 else ("red" if value < 0 else ("green" if value > 0 else "gray"))
     
@@ -38,6 +38,49 @@ def displayBar(label, value):
             <div style="background: lightgray; width: 100%; height: 20px; border-radius: 10px; position: relative;">
                 <div style="background: {color}; width: {width}; height: 20px; border-radius: 10px;"></div>
             </div>  
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+def displayBar(label, value):
+    width = "0%" if value == 0 else "50%" if value == 1 else "100%"
+    color = "lightgray" if value == 0 else ("red" if value < 0 else ("green" if value > 0 else "gray"))
+    
+    interpretation = {
+        0: "Neutral",
+        1: "Partially Improved",
+        2: "Improved"}.get(value, "Worsens")
+    
+    st.markdown(
+        f"""
+        <div style="margin: 5px 0; display: flex; align-items: center; gap: 8px;">
+            <div style="flex: 0 0 120px; font-weight: bold;">{label}</div>
+            <div style="flex: 1; background: lightgray; height: 18px; border-radius: 9px; overflow: hidden;">
+                <div style="background: {color}; width: {width}; height: 100%;"></div>
+            </div>
+            <div style="flex: 0 0 80px; text-align: right; font-size: 0.9em; color: #555;">{interpretation}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+def displayBarVariant(value):
+    width = "0%" if value == 0 else "50%" if value == 1 else "100%"
+    color = "lightgray" if value == 0 else ("red" if value < 0 else ("green" if value > 0 else "gray"))
+    
+    interpretation = {
+        0: "Neutral",
+        1: "Partially Improved",
+        2: "Improved"}.get(value, "Worsens")
+    
+    st.markdown(
+        f"""
+        <div style="margin: 5px 0; display: flex; align-items: center; gap: 8px;">
+            <div style="flex: 1; background: lightgray; height: 18px; border-radius: 9px; overflow: hidden;">
+                <div style="background: {color}; width: {width}; height: 100%;"></div>
+            </div>
+            <div style="flex: 10px 0 80px; text-align: right; font-size: 0.7em; color: #555;">{interpretation}</div>
         </div>
         """,
         unsafe_allow_html=True,

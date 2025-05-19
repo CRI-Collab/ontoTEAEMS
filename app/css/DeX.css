@@ -42,9 +42,9 @@ h1 {
 
 .stAlert {
     background-color: #ffebee;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 20px;
+    border-radius: 2px;
+    padding: 1px;
+    margin-top: 0px;
 }
 
 .domain-expert-title {
